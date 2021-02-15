@@ -12,4 +12,10 @@ public class nativeMobileTests extends BaseTest {
 
     }
 
+    @Test(groups = {"native"}, description = "register new account and sign in")
+    public void registerAndSignInTest() {
+
+        //Make sure that you are on the BudgetActivity page
+    }
+
 }

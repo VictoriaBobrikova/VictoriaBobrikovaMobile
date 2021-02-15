@@ -24,4 +24,24 @@ public class webMobileTests extends BaseTest {
         System.out.println("Site opening done");
     }
 
+    @Test(groups = {"web"}, description = "go to a Google search page and search using keyword ‘EPAM’")
+    public void googleSearchWithKeywordEpamTest() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+        getDriver().get("https://www.google.ru/");
+
+        // Make sure that page has been loaded completely
+        new WebDriverWait(getDriver(), 10).until(
+                wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
+        );
+
+        getPo().getWelement("searchLine").click();
+
+        getPo().getWelement("searchButton").click();
+
+        new WebDriverWait(getDriver(), 10).until(
+                wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
+        );
+        //Make sure that there are some relevant results (non-empty list)
+
+    }
+
 }
