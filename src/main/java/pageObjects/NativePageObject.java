@@ -24,8 +24,6 @@ public class NativePageObject  {
     WebElement registrationPasswordInputField;
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/registration_confirm_password")
     WebElement confirmPasswordInputField;
-//    @AndroidFindBy(className = "android.widget.CheckedTextView")
-//    WebElement agreementCheckbox;
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_new_account_button")
     WebElement registerNewAccountButton;
     @AndroidFindBy(xpath = "//*[contains(@text, 'BudgetActivity')]")
@@ -34,6 +32,4 @@ public class NativePageObject  {
     public NativePageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements( new AppiumFieldDecorator(appiumDriver), this);
     }
-
-
 }

@@ -1,6 +1,5 @@
 package scenarios;
 
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,18 +25,17 @@ public class webMobileTests extends BaseTest {
 //        System.out.println("Site opening done");
 //    }
 
-    @Parameters({"keyword"})
+    @Parameters("keyword")
     @Test(groups = {"web"}, description = "go to a Google search page and search using keyword")
     public void googleSearchWithKeywordEpamTest(String keyword) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
-        getDriver().get("https://www.google.ru/");
+        getDriver().get("https://www.google.com/");
         // Make sure that page has been loaded completely
         new WebDriverWait(getDriver(), 10).until(
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
         System.out.println("Site opening done");
-        getPo().getWelement("searchLine").click();
         getPo().getWelement("searchLine").sendKeys(keyword);
-//        getPo().getWelement("searchButton").click();
+        System.out.println("Searching by keyword");
         new WebDriverWait(getDriver(), 10).until(
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
@@ -45,5 +43,4 @@ public class webMobileTests extends BaseTest {
         //Make sure that there are some relevant results (non-empty list)
         assert getPo().getWebElements("searchResultsHeadersList").size() > 0;
     }
-
 }
