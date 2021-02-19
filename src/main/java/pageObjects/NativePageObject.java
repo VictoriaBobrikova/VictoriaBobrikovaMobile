@@ -26,7 +26,9 @@ public class NativePageObject  {
     WebElement confirmPasswordInputField;
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_new_account_button")
     WebElement registerNewAccountButton;
-    @AndroidFindBy(xpath = "//*[contains(@text, 'BudgetActivity')]")
+//    @AndroidFindBy(xpath = "//*[contains(@text, 'BudgetActivity')]")
+    @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/action_bar")
+//    @AndroidFindBy(className = "android.widget.TextView")
     WebElement budgetActivity;
 
     public NativePageObject(AppiumDriver appiumDriver) {
