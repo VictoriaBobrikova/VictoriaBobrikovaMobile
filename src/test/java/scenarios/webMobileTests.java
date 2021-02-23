@@ -37,7 +37,7 @@ public class webMobileTests extends BaseTest {
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
         System.out.println("Site opening done");
-        getPo().getWelement("searchLine").sendKeys(mapData.get("keyword"));
+        getPo().getWelement("searchLine").sendKeys(mapData.get("keyword")+ Keys.ENTER);
         System.out.println("Searching by keyword");
         new WebDriverWait(getDriver(), 10).until(
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
