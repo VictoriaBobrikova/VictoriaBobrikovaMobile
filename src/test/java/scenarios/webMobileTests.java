@@ -2,6 +2,7 @@ package scenarios;
 
 import dataProvider.WebDataProvider;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -36,7 +37,7 @@ public class webMobileTests extends BaseTest {
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
         System.out.println("Site opening done");
-        getPo().getWelement("searchLine").sendKeys(mapData.get("keyword"));
+        getPo().getWelement("searchLine").sendKeys(mapData.get("keyword") + Keys.ENTER);
         System.out.println("Searching by keyword");
         new WebDriverWait(getDriver(), 10).until(
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
