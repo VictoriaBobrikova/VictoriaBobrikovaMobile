@@ -2,20 +2,28 @@ package scenarios;
 
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Parameters;
+import dataProvider.NativeDataProvider;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
+import java.util.Map;
+
 public class nativeMobileTests extends BaseTest {
 
-    @Test(groups = {"native"}, description = "This simple test just click on the Sign In button")
-    public void simpleNativeTest() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
-        getPo().getWelement("signInButton").click();
-        System.out.println("Simplest Android native test done");
-    }
+//    @Test(groups = {"native"}, description = "This simple test just click on the Sign In button")
+//    public void simpleNativeTest() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+//        getPo().getWelement("signInButton").click();
+//        System.out.println("Simplest Android native test done");
+//    }
 
-    @Parameters({"name","password","email"})
-    @Test(groups = {"native"}, description = "register new account and sign in test")
-    public void registerAndSignInTest(String name, String password, String email) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+    @Test(groups = {"native"}, description = "register new account and sign in test",
+            dataProvider = "nativeAppData", dataProviderClass = NativeDataProvider.class)
+    public void registerAndSignInTest(Map<String,String> mapData) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+
+        String email = mapData.get("email");
+        String name = mapData.get("name");
+        String password = mapData.get("password");
+
         //register
         getPo().getWelement("registerButton").click();
         System.out.println("Registration page is opened");
