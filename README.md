@@ -8,6 +8,7 @@ after -P you should write the profile name which test you want to start:
 - iosWeb
 - androidNative
 - iosNative
+
 For example: mvn clean test -PandroidWeb
 
 Note:
