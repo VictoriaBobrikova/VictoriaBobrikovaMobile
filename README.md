@@ -10,7 +10,9 @@ after -P you should write the profile name which test you want to start:
 For example: mvn clean test -PandroidWeb
 
 Note:
+
 ! Before testing, make sure that the device you want to test on is available in cloud. 
 If not, provide the id of any available device to appropriate .xml file in "test/resourses" package in row: <parameter name="udid" value=""/>, input in value "".
+
 ! If you want to test native application you should firstly install an appropriate app to device under the test in cloud from "main/resourses" folder:
 .apk for android or .ipa for ios
