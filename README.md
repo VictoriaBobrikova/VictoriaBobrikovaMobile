@@ -2,6 +2,7 @@
 1. To start working you should add your access token to mobile cloud to pom.xml file between these tags <token></token>.
 2. To start tests, use this maven command in terminal:
 mvn clean test -P
+
 after -P you should write the profile name which test you want to start:
 - androidWeb
 - iosWeb
