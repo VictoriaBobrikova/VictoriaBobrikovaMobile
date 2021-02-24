@@ -1,7 +1,5 @@
 package scenarios;
 
-import org.openqa.selenium.Keys;
-import org.testng.annotations.Parameters;
 import dataProvider.NativeDataProvider;
 import org.testng.annotations.Test;
 import setup.BaseTest;
@@ -30,6 +28,7 @@ public class nativeMobileTests extends BaseTest {
 
         getPo().getWelement("registrationEmailInputField").sendKeys(email);
         getPo().getWelement("registrationUsernameInputField").sendKeys(name);
+
         getPo().getWelement("registrationPasswordInputField").sendKeys(password);
         getPo().getWelement("confirmPasswordInputField").sendKeys(password);
         System.out.println("Required fields are filled in");
@@ -38,6 +37,39 @@ public class nativeMobileTests extends BaseTest {
 
         getPo().getWelement("emailInputField").sendKeys(email);
         getPo().getWelement("passwordInputField").sendKeys(password);
+        getPo().getWelement("signInButton").click();
+        System.out.println("Logged in to new account");
+
+        assert getPo().getWelement("budgetActivity").getText().equals("BudgetActivity") : "This is not BudgetActivity page";
+    }
+
+    @Test(groups = {"nativeiOS"}, description = "register new account and sign in test for iOS native",
+            dataProvider = "nativeAppData", dataProviderClass = NativeDataProvider.class)
+    public void registerAndSignInTestiOS(Map<String,String> mapData) throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+
+        String email = mapData.get("email");
+        String name = mapData.get("name");
+
+        //register
+        getPo().getWelement("registerButton").click();
+        System.out.println("Registration page is opened");
+
+        getPo().getWelement("registrationEmailInputField").sendKeys(email);
+        getPo().getWelement("registrationUsernameInputField").sendKeys(name);
+        getPo().getWelement("registrationPasswordInputField").click();
+        getPo().getWelement("registrationPasswordInputField").click();
+        getPo().getWelement("confirmPasswordInputField").click();
+        getPo().getWelement("confirmPasswordInputField").click();
+
+        getPo().getWelement("switchIos").click();
+
+        System.out.println("Required fields are filled in");
+        getPo().getWelement("registerNewAccountButton").click();
+        System.out.println("New account is registered");
+
+        getPo().getWelement("emailInputField").sendKeys(email);
+        getPo().getWelement("passwordInputField").click();
+        getPo().getWelement("passwordInputField").click();
         getPo().getWelement("signInButton").click();
         System.out.println("Logged in to new account");
 

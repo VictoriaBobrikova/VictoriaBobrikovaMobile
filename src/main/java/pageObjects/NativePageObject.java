@@ -33,16 +33,16 @@ public class NativePageObject  {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSecureTextField[@value='Repeat please']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/registration_confirm_password")
     WebElement confirmPasswordInputField;
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@label='Register new account']")
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeSwitch[@label='I read agreaments and agree wit it']")
+    WebElement switchIos;
+
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@value='Register new account']")
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_new_account_button")
     WebElement registerNewAccountButton;
-//    @AndroidFindBy(xpath = "//*[contains(@text, 'BudgetActivity')]")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@value='BudgetActivity']")
-    @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/action_bar")
-//    @AndroidFindBy(className = "android.widget.TextView")
+    @AndroidFindBy(xpath = "//*[contains(@text, 'BudgetActivity')]")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='BudgetActivity']")
     WebElement budgetActivity;
-
-    //switch XCUIElementTypeSwitch
 
     public NativePageObject(AppiumDriver appiumDriver) {
         PageFactory.initElements( new AppiumFieldDecorator(appiumDriver), this);
