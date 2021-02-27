@@ -8,6 +8,10 @@
     <artifactId>mobileTaTrainingV2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <token>eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMR0xsSnVPQmxyUHF3Wi1JaTQ1VG1KQnVfakdVNnRLV3hKdm1JQ0w3cDU4In0.eyJleHAiOjE2MTYyNzQ0MzQsImlhdCI6MTYxMzY4MjQzNCwianRpIjoiZDA2MmI1NWQtY2YxNC00MzdiLTk5NzEtYjQ5N2RhNzY4YzIwIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5lcG0tdHN0Zi5wcm9qZWN0cy5lcGFtLmNvbS9hdXRoL3JlYWxtcy9wcm9kdWN0aW9uIiwiYXVkIjoibW9iaWxlY2xvdWQiLCJzdWIiOiI5YTEzYzkxZC1mODIzLTQ3MDgtOTA4ZC0zODkzNTc3YTFlMDAiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJtb2JpbGVjbG91ZCIsInNlc3Npb25fc3RhdGUiOiJmOGQ4MDUxYi01NWQyLTRiYTctOTQyZi00MTA0OWM2YjY3YmIiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImNsb3VkX3VzZXIiLCJvZmZsaW5lX2FjY2VzcyJdfSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBvZmZsaW5lX2FjY2VzcyBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJncm91cF9pZCI6IjMwODBkNjZmLWVkNTctNDJiNi04ZGE4LTE0NzY5YTFkZmI1NCIsIm5hbWUiOiJWaWN0b3JpaWEgQm9icmlrb3ZhIiwicHJlZmVycmVkX3VzZXJuYW1lIjoidmljdG9yaWlhX2JvYnJpa292YUBlcGFtLmNvbSIsImdpdmVuX25hbWUiOiJWaWN0b3JpaWEiLCJmYW1pbHlfbmFtZSI6IkJvYnJpa292YSIsImVtYWlsIjoidmljdG9yaWlhX2JvYnJpa292YUBlcGFtLmNvbSJ9.SGMjq_337P8EPWFX4JsvEs2Ahu_x8o6D9wtWUVrrG9bCuMj0gaf1xwbo_18rGJT6xBgGHdZ24Qwumrg6biMlEPy-3YPuJy52Be7hJDaAZFssTYN10sAKi2pn2hX-UqfpPvkyxE37tlsqpXL8X3Rom-CNnKj5-_Qafjatk87sRG0QjLr2UfqRsIfWQ8H0fH8F9AYvTUSA8qZKQKv9SDhrd4zm9tJNABbtGjypz4F0edJ_wJCa6RC4RCooalUfsjyQGTXYWw6-XoWv-b4yjPQDRRgGON0xuXq3XefNrVZtYxwLq7hUUbKKudDMHsl8twZUHifSxuIJ3fostdmxZ15KDw</token>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.appium</groupId>
@@ -18,6 +22,11 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.1</version>
         </dependency>
     </dependencies>
 
@@ -33,6 +42,7 @@
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <ts.appium>http://localhost:4723/wd/hub</ts.appium>
+<!--                        <ts.appium>https://EPM-TSTF:${token}@mobilecloud.epam.com/wd/hub</ts.appium>-->
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -54,7 +64,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/nativeTNG.xml</suite.file>
+                <suite.file>./src/test/resources/nativeTNG.xml</suite.file>
             </properties>
         </profile>
 
@@ -67,6 +77,37 @@
                 <suite.file>./src/test/resources/webTNG.xml</suite.file>
             </properties>
         </profile>
+
+        <profile>
+            <id>androidWeb</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/androidWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>iosWeb</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/iosWebTNG.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>androidNative</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/androidNativeTNG.xml</suite.file>
+            </properties>
+        </profile>
+
     </profiles>
 
 

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import setup.IPageObject;
 
 import java.lang.reflect.Field;
+import java.util.List;
 
 public class PageObject implements IPageObject {
 
@@ -25,13 +26,18 @@ public class PageObject implements IPageObject {
 
     }
 
-
     @Override
     public WebElement getWelement(String weName) throws NoSuchFieldException, IllegalAccessException {
         // use reflection technique
         Field field = somePageObject.getClass().getDeclaredField(weName);
         field.setAccessible(true);
         return (WebElement) field.get(somePageObject);
+    }
 
+    @Override
+    public List<WebElement> getWebElements(String weName) throws NoSuchFieldException, IllegalAccessException {
+        Field field = somePageObject.getClass().getDeclaredField(weName);
+        field.setAccessible(true);
+        return (List<WebElement>) field.get(somePageObject);
     }
 }
