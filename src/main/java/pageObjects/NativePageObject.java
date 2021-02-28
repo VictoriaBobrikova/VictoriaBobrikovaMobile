@@ -41,7 +41,7 @@ public class NativePageObject  {
     @AndroidFindBy(id = "platkovsky.alexey.epamtestapp:id/register_new_account_button")
     WebElement registerNewAccountButton;
     @AndroidFindBy(xpath = "//*[contains(@text, 'BudgetActivity')]")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='BudgetActivity']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Budget']")
     WebElement budgetActivity;
 
     public NativePageObject(AppiumDriver appiumDriver) {

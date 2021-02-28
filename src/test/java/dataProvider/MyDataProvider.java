@@ -5,11 +5,11 @@ import utils.ReadJsonFileData;
 
 import java.util.Map;
 
-public class NativeDataProvider {
+public class MyDataProvider {
 
     @DataProvider
-    public Object[][] nativeAppData() {
-        String filePath = "src/test/resources/data/nativeData.json";
+    public Object[][] myData() {
+        String filePath = "src/test/resources/data/data.json";
         Map<String, String> map = ReadJsonFileData.readJson(filePath);
         return new Object[][] {{map}};
     }
